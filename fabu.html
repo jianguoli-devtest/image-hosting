@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HaoKan.Live 发布页 | HaoKan.Live Redirect Page</title>
+  <meta name="description" content="HaoKan.Live最新主站发布页 | Latest site mirror page for HaoKan.Live">
+  <style>
+    body { font-family: sans-serif; background: #f5f5f5; text-align: center; padding: 50px; }
+    .card {
+      background: white; border-radius: 16px; padding: 30px;
+      max-width: 500px; margin: auto; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h2 { margin-bottom: 15px; }
+    p { margin: 10px 0; font-size: 16px; }
+    .loading { margin-top: 20px; color: #888; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>🌐 正在跳转主站...<br>Redirecting to Main Site...</h2>
+    <p>请稍候，3 秒后自动进入主站<br>Please wait, redirecting in 3 seconds...</p>
+    <p>若未跳转，请 <a id="manualLink" href="#">点击这里手动进入</a><br>If not redirected, <a id="manualLink2" href="#">click here</a></p>
+    <div class="loading">MissAVS - 最新发布通道 / Latest AV Portal</div>
+  </div>
+
+  <script>
+    function generateRandomSubdomain(length = 5) {
+      const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return result;
+    }
+
+    const sub = generateRandomSubdomain();
+    const targetURL = `https://${sub}.k7k.org`;
+
+    // 设置手动跳转链接
+    document.getElementById('manualLink').href = targetURL;
+    document.getElementById('manualLink2').href = targetURL;
+
+    // 自动跳转
+    setTimeout(() => {
+      window.location.href = targetURL;
+    }, 3000); // 3 秒后跳转
+  </script>
+</body>
+</html>
